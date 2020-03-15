@@ -38,7 +38,7 @@ async function fetchCoronaLocations(language="He") {
   return json.map(({ lat, lon, t_start, t_end, ...otherInfo }) => ({
     ...otherInfo,
     position: { lat, long },
-    startTime: t_start,
-    endTime: t_end,
+    startTime: new Date(t_start),
+    endTime: new Date(t_end),
   }))
 }
