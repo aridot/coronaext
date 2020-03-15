@@ -26,8 +26,9 @@ function formatRisks(risks) {
     return risks.map(
         ({
             text,
+            label,
             startTime,
             endTime,
-        }) => `On ${moment(startTime).format("YYYY-MM-DD")}: ${text}`
+        }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}`
     ).join('\n\n');
 }
