@@ -26,6 +26,6 @@ function formatRisks(risks) {
       text,
       startTime,
       endTime,
-    }) => `From ${startTime.format()} to ${endTime.toISOString()}: ${text}`
+    }) => `On ${moment(startTime).format("YYYY-MM-DD")}: ${text}`
   ).join('\n\n');
 }
