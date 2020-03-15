@@ -4,8 +4,8 @@ async function clickLogic() {
     console.log('fetching..');
 
     const [userPositions, coronaPositions] = await Promise.all([
-      fetchUserTimeline(),
-      fetchCoronaLocations(),
+        fetchUserTimeline(),
+        fetchCoronaLocations(),
     ]);
 
     console.log('fetching.. done');
@@ -18,16 +18,16 @@ async function clickLogic() {
     risksElement.innerText = formatRisks(risks);
 }
 
-changeColor.onclick = function(element) {
+fetchAndCompare.onclick = function(element) {
     clickLogic();
 };
 
 function formatRisks(risks) {
-  return risks.map(
-    ({
-      text,
-      startTime,
-      endTime,
-    }) => `From ${startTime.toISOString()} to ${endDate.toISOString()}: ${text}`
-  ).join('\n\n');
+    return risks.map(
+        ({
+            text,
+            startTime,
+            endTime,
+        }) => `From ${startTime.toISOString()} to ${endDate.toISOString()}: ${text}`
+    ).join('\n\n');
 }
