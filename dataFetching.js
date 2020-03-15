@@ -7,7 +7,7 @@ async function fetchUserTimeline() {
   } catch(err) {
     console.log(err);
     return;
-  });
+  };
 
   const dataRecords = [];
   const dataLineRegex = /^,\[(\d+),\[.*,.*,([\d.]+),([\d.]+)\]$/;
@@ -30,7 +30,7 @@ async function fetchCoronaLocations(language="He") {
   try {
     const resString = await fetch(coronaUrl);
     json = JSON.parse(resString);
-  } catch (err) {}
+  } catch (err) {
     console.error("Error fetching coronavirus positions", err);
     return;
   }
