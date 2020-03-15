@@ -2,8 +2,10 @@ const riskDistanceMeters = 1000;
 const timeMarginsHours = 4;
 
 function findRiskPoints(userPositions, coronaPositions) {
-    return coronaPositions.filter(coronaPosition => {
-        return userPositions.some(userPosition => {
+    const risks = [];
+
+    coronaPositions.forEach(coronaPosition => {
+        const matchingUserPosition = userPositions.find(userPosition => {
             return moment(userPosition.time).isBetween(
                 moment(coronaPosition.startTime).subtract(timeMarginsHours, "hours"),
                 moment(coronaPosition.endTime).add(timeMarginsHours, "hours"),
@@ -12,7 +14,19 @@ function findRiskPoints(userPositions, coronaPositions) {
                 coronaPosition.position,
             ) < riskDistanceMeters;
         });
+
+        if (!matchingUserPosition) return;
+
+        risks.push({
+          ...coronaPosition,
+          distance: calculateDistance(
+            matchingUserPosition.position,
+            coronaPosition.position,
+          ),
+        });
     });
+
+    return risks;
 }
 
 function calculateDistance({ lat: lat1, lon: lon1 }, { lat: lat2, lon: lon2 }) {

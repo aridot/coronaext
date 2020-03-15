@@ -8,6 +8,8 @@ async function clickLogic() {
         fetchCoronaLocations(),
     ]);
 
+    console.log('fetching.. done');
+
     const risks = findRiskPoints(userPositions, coronaPositions);
 
     console.log('cross-referencing.. done', risks);
