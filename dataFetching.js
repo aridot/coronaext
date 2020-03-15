@@ -1,17 +1,18 @@
 async function fetchUserTimeline() {
   const timelineUrl = "https://www.google.com/maps/timeline/_rpc/ma";
 
-  let res;
+  let data;
   try {
-    res = await fetch(timelineUrl);
+    const res = await fetch(timelineUrl);
+    data = await res.text();
   } catch(err) {
-    console.log(err);
+    console.error('Error fetching timeline from Google', err);
     return;
   };
 
   const dataRecords = [];
   const dataLineRegex = /^,\[(\d+),\[.*,.*,([\d.]+),([\d.]+)\]$/;
-  res.split("\n").forEach(line => {
+  data.split("\n").forEach(line => {
     const match = dataLineRegex.exec(line);
     if (!match) return;
     dataRecords.push({
@@ -28,8 +29,8 @@ async function fetchCoronaLocations(language="He") {
 
   let json;
   try {
-    const resString = await fetch(coronaUrl);
-    json = JSON.parse(resString);
+    const res = await fetch(coronaUrl);
+    json = await res.json(); //JSON.parse(res.body);
   } catch (err) {
     console.error("Error fetching coronavirus positions", err);
     return;
@@ -37,7 +38,7 @@ async function fetchCoronaLocations(language="He") {
 
   return json.map(({ lat, lon, t_start, t_end, ...otherInfo }) => ({
     ...otherInfo,
-    position: { lat, long },
+    position: { lat, lon },
     startTime: new Date(t_start),
     endTime: new Date(t_end),
   }))
