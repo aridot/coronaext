@@ -1,18 +1,33 @@
 let global_result = undefined;
 
-const clickLogic = function() {
+async function clickLogic() {
     console.log('fetching..');
 
-    const api_endpoint = 'https://www.google.com/maps/timeline/_rpc/ma';
+    const [userPositions, coronaPositions] = await Promise.all([
+      fetchUserTimeline(),
+      fetchCoronaLocations(),
+    ]);
 
-    fetch(api_endpoint).then(r => { global_result = r; return r.text() }).then(result => {
-        console.log(result);
-    }).catch(err => {
-        console.log(err);
-    });
     console.log('fetching.. done');
+
+    const risks = findRiskPoints(userPositions, coronaPositions);
+
+    console.log('cross-referencing.. done');
+
+    const risksElement = document.getElementById('risks');
+    risksElement.innerText = formatRisks(risks);
 }
 
 changeColor.onclick = function(element) {
     clickLogic();
 };
+
+function formatRisks(risks) {
+  return risks.map(
+    ({
+      text,
+      startTime,
+      endTime,
+    }) => `From ${startTime.toISOString()} to ${endDate.toISOString()}: ${text}`
+  ).join('\n\n');
+}
