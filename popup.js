@@ -8,11 +8,9 @@ async function clickLogic() {
       fetchCoronaLocations(),
     ]);
 
-    console.log('fetching.. done');
-
     const risks = findRiskPoints(userPositions, coronaPositions);
 
-    console.log('cross-referencing.. done');
+    console.log('cross-referencing.. done', risks);
 
     const risksElement = document.getElementById('risks');
     risksElement.innerText = formatRisks(risks);
@@ -28,6 +26,6 @@ function formatRisks(risks) {
       text,
       startTime,
       endTime,
-    }) => `From ${startTime.toISOString()} to ${endDate.toISOString()}: ${text}`
+    }) => `From ${startTime.format()} to ${endTime.toISOString()}: ${text}`
   ).join('\n\n');
 }

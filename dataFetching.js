@@ -16,8 +16,11 @@ async function fetchUserTimeline() {
     const match = dataLineRegex.exec(line);
     if (!match) return;
     dataRecords.push({
-      time: new Date(match[1]),
-      position: { lat: match[2], lon: match[3] },
+      time: new Date(parseInt(match[1], 10)),
+      position: {
+        lat: parseFloat(match[2], 10),
+        lon: parseFloat(match[3], 10),
+      },
     });
   });
 
