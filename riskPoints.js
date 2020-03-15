@@ -1,4 +1,4 @@
-const riskDistanceMeters = 1000;
+const riskDistanceKilometers = 1;
 const timeMarginsHours = 4;
 
 function findRiskPoints(userPositions, coronaPositions) {
@@ -12,17 +12,17 @@ function findRiskPoints(userPositions, coronaPositions) {
             ) && calculateDistance(
                 userPosition.position,
                 coronaPosition.position,
-            ) < riskDistanceMeters;
+            ) < riskDistanceKilometers;
         });
 
         if (!matchingUserPosition) return;
 
         risks.push({
-          ...coronaPosition,
-          distance: calculateDistance(
-            matchingUserPosition.position,
-            coronaPosition.position,
-          ),
+            ...coronaPosition,
+            distance: calculateDistance(
+                matchingUserPosition.position,
+                coronaPosition.position,
+            ),
         });
     });
 
