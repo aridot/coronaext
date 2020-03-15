@@ -29,6 +29,7 @@ function formatRisks(risks) {
             label,
             startTime,
             endTime,
-        }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}`
+            distance,
+        }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}, ${distance.toFixed(2)} km away`
     ).join('\n\n');
 }
