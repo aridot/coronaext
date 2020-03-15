@@ -1,5 +1,5 @@
 const riskDistanceKilometers = 1;
-const timeMarginsHours = 4;
+const timeMarginsHours = 1;
 
 function findRiskPoints(userPositions, coronaPositions) {
     const risks = [];
