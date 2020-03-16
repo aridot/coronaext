@@ -14,7 +14,10 @@
    width="512"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="virus.svg">
+   sodipodi:docname="virus.svg"
+   inkscape:export-filename="/home/ariel/dev/corona/coronaext/images/virus_48.png"
+   inkscape:export-xdpi="8.4374666"
+   inkscape:export-ydpi="8.4374666">
   <metadata
      id="metadata3542">
     <rdf:RDF>
@@ -42,7 +45,7 @@
      id="namedview3538"
      showgrid="false"
      inkscape:zoom="0.86816406"
-     inkscape:cx="-315.23783"
+     inkscape:cx="-350.36944"
      inkscape:cy="84.124272"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -172,8 +175,7 @@
     <path
        d="m223.5 255.5c-2.762 0-5.443.35-8 1.008 13.802 3.552 24 16.081 24 30.992s-10.198 27.44-24 30.992c2.557.658 5.238 1.008 8 1.008 17.673 0 32-14.327 32-32s-14.327-32-32-32z"
        fill="#ed9c87"
-       id="path3502"
-       style="fill:#ed72bd;fill-opacity:1" />
+       id="path3502" />
     <circle
        cx="303.5"
        cy="239.5"
@@ -184,8 +186,7 @@
     <path
        d="m303.5 215.5c-2.806 0-5.497.486-8 1.371 9.32 3.295 16 12.18 16 22.629s-6.68 19.334-16 22.629c2.503.885 5.194 1.371 8 1.371 13.255 0 24-10.745 24-24s-10.745-24-24-24z"
        fill="#ed9c87"
-       id="path3506"
-       style="fill:#ed72bd;fill-opacity:1" />
+       id="path3506" />
     <circle
        cx="239.5"
        cy="199.5"
@@ -196,8 +197,7 @@
     <path
        d="m239.5 183.5c-2.918 0-5.645.794-8 2.158 4.778 2.768 8 7.923 8 13.842s-3.222 11.074-8 13.842c2.355 1.364 5.082 2.158 8 2.158 8.837 0 16-7.163 16-16s-7.163-16-16-16z"
        fill="#ed9c87"
-       id="path3510"
-       style="fill:#ed72bd;fill-opacity:1" />
+       id="path3510" />
     <g
        id="g3512">
       <path
