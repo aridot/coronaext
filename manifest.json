@@ -7,7 +7,7 @@
         "persistent": false
     },
     "permissions": [
-        "declarativeContent", "cookies",
+        "declarativeContent",
         "https://israelcoronamap.co.il/",
         "https://www.google.com/"
     ],
