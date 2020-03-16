@@ -1,0 +1,14 @@
+body {
+    height: 300px;
+    width: 400px;
+    outline: none;
+    direction: __MSG_@@bidi_dir__;
+    background-color: orchid;
+}
+
+popup_button_fetch_compare {
+    height: 50px;
+    width: 120px;
+    outline: none;
+    background-color: purple;
+}

@@ -1,4 +1,7 @@
 {
+    "ext_description": {
+        "message": "Compare Google Locations with Corona confirmed locations"
+    },
     "popup_title": {
         "message": "Hello!"
     },
