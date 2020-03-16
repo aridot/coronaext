@@ -69,4 +69,6 @@ function internationalizeStrings() {
     const static_string_ids = ["popup_title", "popup_explain", "popup_data", "popup_button_fetch_compare"];
     static_string_ids.forEach(id => putMessage(id));
 }
-internationalizeStrings();
+document.addEventListener('DOMContentLoaded', function() {
+    internationalizeStrings();
+});
