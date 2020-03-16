@@ -13,5 +13,11 @@
     },
     "popup_button_fetch_compare": {
         "message": "Fetch and Compare!"
+    },
+    "format_on": {
+        "message": "On"
+    },
+    "format_km_away": {
+        "message": "km away"
     }
 }

@@ -49,6 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function formatRisks(risks) {
+    const formatLocaleMessages = ['format_on', 'format_km_away'];
+    const _lo = formatLocaleMessages.reduce((o, k) =>
+        Object.assign(o, {
+            [k]: chrome.i18n.getMessage(k)
+        }), {});
+
     return risks.map(
         ({
             text,
@@ -56,7 +62,7 @@ function formatRisks(risks) {
             startTime,
             endTime,
             distance,
-        }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}, ${distance.toFixed(2)} km away`
+        }) => `${_lo.format_on} ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}, ${distance.toFixed(2)} ${_lo.format_km_away}`
     ).join('\n\n');
 }
 

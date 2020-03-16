@@ -13,5 +13,11 @@
     },
     "popup_button_fetch_compare": {
         "message": "אסוף מידע והשווה!"
+    },
+    "format_on": {
+        "message": "בתאריך ושעה"
+    },
+    "format_km_away": {
+        "message": "ק\"מ"
     }
 }
