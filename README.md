@@ -3,7 +3,7 @@ Corona Extension for Chrome - utilizing locations timeline and matching against 
 
 
 
-
+Icon adapted from a version made by Pixel perfect from www.flaticon.com (https://www.flaticon.com/authors/pixel-perfect)
 
 Using code from:
 https://github.com/xpl/crx-hotreload/
