@@ -3,15 +3,11 @@
     "version": "1.0",
     "description": "Compare Google Locations with Corona confirmed locations",
     "background": {
-        "scripts": ["background.js"
-            //, "hot-reload.js"
-        ],
+        "scripts": ["background.js"],
         "persistent": false
     },
     "permissions": [
-        "declarativeContent",
-        //   "tabs",
-        "cookies",
+        "declarativeContent", "cookies",
         "https://israelcoronamap.co.il/",
         "https://www.google.com/"
     ],
