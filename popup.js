@@ -1,4 +1,16 @@
-let global_result = undefined;
+var _gaq = _gaq || [];
+
+_gaq.push(['_setAccount', 'UA-160779860-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
 
 async function clickLogic() {
     console.log('fetching..');
@@ -9,18 +21,32 @@ async function clickLogic() {
     ]);
 
     console.log('fetching.. done');
+    _gaq.push(['_trackEvent', 'fetching', 'done']);
+
+    console.log('cross-referencing..');
 
     const risks = findRiskPoints(userPositions, coronaPositions);
 
     console.log('cross-referencing.. done', risks);
+    _gaq.push(['_trackEvent', 'cross-referencing', 'done']);
 
     const risksElement = document.getElementById('risks');
     risksElement.innerText = formatRisks(risks);
 }
 
-popup_button_fetch_compare.onclick = function(element) {
-    clickLogic();
-};
+function trackButtonClick(e) {
+    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    popup_button_fetch_compare.onclick = function(element) {
+        clickLogic();
+    };
+    var buttons = document.querySelectorAll('button');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', trackButtonClick);
+    }
+});
 
 function formatRisks(risks) {
     return risks.map(
@@ -33,7 +59,6 @@ function formatRisks(risks) {
         }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}, ${distance.toFixed(2)} km away`
     ).join('\n\n');
 }
-
 
 function internationalizeStrings() {
     function putMessage(id) {

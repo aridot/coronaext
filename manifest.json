@@ -28,7 +28,7 @@
         "48": "images/virus_48.png",
         "128": "images/virus_128.png"
     },
-    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js; object-src 'self'",
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js  https://ssl.google-analytics.com; object-src 'self'",
     "default_locale": "en",
     "manifest_version": 2
 }
