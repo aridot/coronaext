@@ -1,0 +1,14 @@
+{
+    "popup_title": {
+        "message": "Hello!"
+    },
+    "popup_explain": {
+        "message": "This extension will help you compare your locations history with the knownd cases of COVID-19 in Israel."
+    },
+    "popup_data": {
+        "message": "All of your data stays in your browser and never sent to the internet."
+    },
+    "popup_button_fetch_compare": {
+        "message": "Fetch and Compare!"
+    }
+}

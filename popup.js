@@ -18,7 +18,7 @@ async function clickLogic() {
     risksElement.innerText = formatRisks(risks);
 }
 
-fetchAndCompare.onclick = function(element) {
+popup_button_fetch_compare.onclick = function(element) {
     clickLogic();
 };
 
@@ -33,3 +33,15 @@ function formatRisks(risks) {
         }) => `On ${moment(startTime).format("YYYY-MM-DD HH:mm:ss")}: ${text || label}, ${distance.toFixed(2)} km away`
     ).join('\n\n');
 }
+
+
+function internationalizeStrings() {
+    function putMessage(id) {
+        var message = chrome.i18n.getMessage(id);
+        document.getElementById(id).innerHTML = message;
+    }
+
+    const static_string_ids = ["popup_title", "popup_explain", "popup_data", "popup_button_fetch_compare"];
+    static_string_ids.forEach(id => putMessage(id));
+}
+internationalizeStrings();

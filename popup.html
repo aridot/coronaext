@@ -9,7 +9,7 @@
             outline: none;
         }
         
-        button {
+        popup_button_fetch_compare {
             height: 50px;
             width: 120px;
             outline: none;
@@ -18,10 +18,12 @@
 </head>
 
 <body>
-    <h4>Hello!</h4>
-    <p>this extension will help you compare your locations history with the knownd cases of COVID-19 in Israel</p>
+    <h4 id="popup_title">Hello!</h4>
+    <p id="popup_explain">This extension will help you compare your locations history with the knownd cases of COVID-19 in Israel</p>
+    <p id="popup_data">All of your data stays in your browser and never sent to the internet.</p>
+
     <div></div>
-    <button id="fetchAndCompare">Fetch and Compare</button>
+    <button id="popup_button_fetch_compare">Fetch and Compare</button>
     <script src="popup.js"></script>
     <script src="dataFetching.js"></script>
     <script src="riskPoints.js"></script>

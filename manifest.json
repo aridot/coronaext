@@ -10,7 +10,6 @@
         "declarativeContent",
         "tabs",
         "cookies",
-        // "https://*/*",
         "https://israelcoronamap.co.il/",
         "https://www.google.com/"
     ],
@@ -29,6 +28,7 @@
         "48": "images/get_started48.png",
         "128": "images/get_started128.png"
     },
-    "manifest_version": 2,
-    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js; object-src 'self'"
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js; object-src 'self'",
+    "default_locale": "en",
+    "manifest_version": 2
 }
