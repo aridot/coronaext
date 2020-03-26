@@ -19,5 +19,11 @@
     },
     "format_km_away": {
         "message": "km away"
+    },
+    "text_fetching_started": {
+        "message": "Fetching data.."
+    },
+    "text_fetching_done": {
+        "message": "Done fetching data! Analyzing.."
     }
 }

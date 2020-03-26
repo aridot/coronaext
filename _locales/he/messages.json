@@ -19,5 +19,11 @@
     },
     "format_km_away": {
         "message": "ק\"מ"
+    },
+    "text_fetching_started": {
+        "message": "אוסף מידע.."
+    },
+    "text_fetching_done": {
+        "message": "איסוף המידע הסתיים! מנתח נתונים.."
     }
 }

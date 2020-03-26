@@ -13,24 +13,29 @@ _gaq.push(['_trackPageview']);
 })();
 
 async function clickLogic() {
+    const risksElement = document.getElementById('risks');
+
     console.log('fetching..');
+    risksElement.innerText = chrome.i18n.getMessage('text_fetching_started');
+    try {
+        const [userPositions, coronaPositions] = await Promise.all([
+            fetchUserTimeline(),
+            fetchCoronaLocations(),
+        ]);
+    } catch (err) {
+        console.log(err);
+        console.log('exception');
 
-    const [userPositions, coronaPositions] = await Promise.all([
-        fetchUserTimeline(),
-        fetchCoronaLocations(),
-    ]);
-
+    }
     console.log('fetching.. done');
+    risksElement.innerText = chrome.i18n.getMessage('text_fetching_done');
     _gaq.push(['_trackEvent', 'fetching', 'done']);
 
     console.log('cross-referencing..');
-
     const risks = findRiskPoints(userPositions, coronaPositions);
-
     console.log('cross-referencing.. done', risks);
     _gaq.push(['_trackEvent', 'cross-referencing', 'done']);
 
-    const risksElement = document.getElementById('risks');
     risksElement.innerText = formatRisks(risks);
 }
 
