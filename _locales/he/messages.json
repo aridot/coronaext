@@ -23,6 +23,9 @@
     "text_fetching_started": {
         "message": "אוסף מידע.."
     },
+    "text_fetching_failed": {
+        "message": "איסוף המידע נכשל :("
+    },
     "text_fetching_done": {
         "message": "איסוף המידע הסתיים! מנתח נתונים.."
     }

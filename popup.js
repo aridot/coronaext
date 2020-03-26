@@ -17,15 +17,19 @@ async function clickLogic() {
 
     console.log('fetching..');
     risksElement.innerText = chrome.i18n.getMessage('text_fetching_started');
+    let userPositions, coronaPositions;
     try {
-        const [userPositions, coronaPositions] = await Promise.all([
+        [userPositions,
+            coronaPositions
+        ] = await Promise.all([
             fetchUserTimeline(),
             fetchCoronaLocations(),
         ]);
     } catch (err) {
         console.log(err);
         console.log('exception');
-
+        risksElement.innerText = chrome.i18n.getMessage('text_fetching_failed') + '\n' + (err.toString());
+        return;
     }
     console.log('fetching.. done');
     risksElement.innerText = chrome.i18n.getMessage('text_fetching_done');

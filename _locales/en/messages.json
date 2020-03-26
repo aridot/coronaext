@@ -23,6 +23,9 @@
     "text_fetching_started": {
         "message": "Fetching data.."
     },
+    "text_fetching_failed": {
+        "message": "Fetching data Failed :("
+    },
     "text_fetching_done": {
         "message": "Done fetching data! Analyzing.."
     }

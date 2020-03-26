@@ -8,7 +8,7 @@ async function fetchUserTimeline() {
         data = await res.text();
     } catch (err) {
         console.error('Error fetching timeline from Google', err);
-        return;
+        throw new Error("Error fetching positions from google\n" + err.message + "\n" + err.stack);
     };
 
     const dataRecords = [];
@@ -31,16 +31,16 @@ async function fetchUserTimeline() {
     return dataRecords;
 }
 
-async function fetchCoronaLocations(language = "He") {
-    const coronaUrl = `https://israelcoronamap.co.il/data/data${language}.json`;
+async function fetchCoronaLocations(language = "he") {
+    const coronaUrl = `https://israelcoronamap.co.il/data/data-${language}.json`;
 
     let json;
     try {
         const res = await fetch(coronaUrl);
         json = await res.json(); //JSON.parse(res.body);
     } catch (err) {
-        console.error("Error fetching coronavirus positions", err);
-        return;
+        console.error("Error fetching positions", err);
+        throw new Error("Error fetching positions from israelcoronamap\n" + err.message + "\n" + err.stack);
     }
 
     return json.map(({ lat, lon, t_start, t_end, ...otherInfo }) => ({
